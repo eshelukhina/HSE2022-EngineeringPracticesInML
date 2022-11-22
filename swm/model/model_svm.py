@@ -1,9 +1,9 @@
 import matplotlib.pyplot as plt
 
-from dataset.dataset import Dataset
-from svm.kernel_svm import KernelSVM
-from svm.linear_svm import LinearSVM
-from visualize.visualizer import Visualizer
+from swm.dataset.dataset import Dataset
+from swm.svm.kernel_svm import KernelSVM
+from swm.svm.linear_svm import LinearSVM
+from swm.visualize.visualizer import Visualizer
 
 
 class Model():

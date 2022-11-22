@@ -1,4 +1,4 @@
-from model.model_svm import Model
+from swm.model.model_svm import Model
 
 
 def start_experiments():

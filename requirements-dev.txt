@@ -1,0 +1,7 @@
+# prod
+-r requirements.txt
+
+# dev
+pytest==7.2.0
+wheel==0.38.4
+twine==4.0.1
