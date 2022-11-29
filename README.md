@@ -5,6 +5,7 @@
 3. [Сборка_пакета](#сборка_пакета)
 3. [Ссылка_на_пакет_в_pypi-test](#ссылка_на_пакет)
 4. [Установка_пакета_из_pypi-test](#установка_пакета)
+5. [Форматирование_кода](#форматирование_кода)
 
 <a name="пакетный_менеджер"></a>
 ## Пакетный менеджер PIP
@@ -60,3 +61,15 @@ twine upload --repository testpypi dist/*
 ```
 pip3 install -i https://test.pypi.org/simple/ svm-eshelukhina
 ```
+
+<a name="форматирование_кода"></a>
+## Форматирование кода
+* Код отформатирован с помощью `isort` и `black`
+* Набор плагинов для `flake8`
+  * flake8-bugbear 
+  * flake8-pie
+  * flake8-simplify 
+  * flake8-requirements
+  * flake8-warnings 
+  * flake8-commas
+  * flake8-return
