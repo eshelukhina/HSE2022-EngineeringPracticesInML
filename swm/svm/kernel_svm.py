@@ -7,9 +7,11 @@ from cvxopt import matrix, solvers
 # kernel SVM
 #
 # Описание
-# fit(X, y) - обучает kernel SVM, решая задачу оптимизации при помощи cvxopt.solvers.qp
+# fit(X, y) - обучает kernel SVM, решая задачу оптимизации
+# при помощи cvxopt.solvers.qp
 #
-# decision_function(X) - возвращает значение решающей функции (т.е. то число, от которого берем знак с целью узнать класс)
+# decision_function(X) - возвращает значение решающей функции
+# (т.е. то число, от которого берем знак с целью узнать класс)
 #
 # Конструктор
 # kernel - ядро-функция
@@ -47,10 +49,12 @@ class KernelSVM:
                 matrix(np.outer(y, y) * K),
                 matrix(-np.ones((samples, 1))),
                 matrix(np.block([[np.eye(samples)], [-np.eye(samples)]])),
-                matrix(np.block([np.ones(samples) * self.C, np.zeros(samples)])),
+                matrix(np.block(
+                    [np.ones(samples) * self.C, np.zeros(samples)],
+                )),
                 matrix(y.astype("float"), (1, samples)),
                 matrix(0.0),
-            )["x"]
+            )["x"],
         )
 
         self.support = np.arange(samples)[self.alpha > 1e-4]
@@ -59,18 +63,18 @@ class KernelSVM:
         self.alpha = self.alpha[self.support]
 
         self.bias = np.mean(
-            self.support_y
-            - np.sum(
-                self.alpha * self.support_y * K[:, self.support][self.support, :],
+            self.support_y - np.sum(
+                self.alpha * self.support_y * K[:, self.support]
+                [self.support, :],
                 axis=1,
-            )
+            ),
         )
 
     def decision_function(self, X: np.ndarray) -> np.ndarray:
         def helper(x):
             s = 0
             for alpha, support_y, support_X in zip(
-                self.alpha, self.support_y, self.support_X
+                self.alpha, self.support_y, self.support_X,
             ):
                 s += alpha * support_y * self.kernel(x, support_X)
             return s
