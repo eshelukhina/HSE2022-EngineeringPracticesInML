@@ -6,13 +6,13 @@ from swm.svm.linear_svm import LinearSVM
 from swm.visualize.visualizer import Visualizer
 
 
-class Model():
-    def __init__(self, svm_type='Linear', c=1, kernal_args=None, dataset_moons=False):
-        if svm_type == 'Linear':
+class Model:
+    def __init__(self, svm_type="Linear", c=1, kernal_args=None, dataset_moons=False):
+        if svm_type == "Linear":
             self.svm = LinearSVM(c)
-        elif svm_type == 'Polynomial':
+        elif svm_type == "Polynomial":
             self.svm = KernelSVM(c, svm_type, kernal_args)
-        elif svm_type == 'Gaussian':
+        elif svm_type == "Gaussian":
             self.svm = KernelSVM(c, svm_type, kernal_args)
         else:
             raise AttributeError()
