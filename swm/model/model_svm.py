@@ -15,9 +15,13 @@ class Model:
             self.svm = KernelSVM(c, svm_type, kernal_args)
         else:
             raise AttributeError()
-        self.dataset = Dataset(dataset_moons)
+        self.svm_type = svm_type
+        self.c = c
+        self.kernal_args = kernal_args
+        self.dataset_moons = dataset_moons
+        self.dataset = Dataset(self.dataset_moons)
         self.svm.fit(self.dataset.X, self.dataset.y)
 
     def visualize(self):
-        Visualizer.visualize(self.svm, self.dataset.X, self.dataset.y)
-        plt.show()
+        Visualizer.visualize(self.svm, self.dataset.X, self.dataset.y, f'plots/svm_{self.svm_type}_{self.c}_{self.kernal_args}_{self.dataset_moons}.png')
+        # plt.show()

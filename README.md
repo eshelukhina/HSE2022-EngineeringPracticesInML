@@ -6,6 +6,7 @@
 3. [Ссылка_на_пакет_в_pypi-test](#ссылка_на_пакет)
 4. [Установка_пакета_из_pypi-test](#установка_пакета)
 5. [Форматирование_кода](#форматирование_кода)
+6. [Запуск pipline](#запуск_pipline)
 
 <a name="пакетный_менеджер"></a>
 ## Пакетный менеджер PIP
@@ -73,3 +74,13 @@ pip3 install -i https://test.pypi.org/simple/ svm-eshelukhina
   * flake8-warnings 
   * flake8-commas
   * flake8-return
+
+  
+<a name="запуск_pipline"></a>
+## Запуск pipline
+Воспроизвидение обучения
+```
+dvc repro
+```
+
+DAG описан в файле `dag`
