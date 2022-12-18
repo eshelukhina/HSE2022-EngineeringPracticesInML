@@ -1,0 +1,21 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python3 -m swm.main
+    deps:
+    - path: swm/model/model_svm.py
+      md5: 617111bc5560c21ce7e870add6acda85
+      size: 1003
+    - path: swm/svm/kernel_svm.py
+      md5: 9752b61ebed5ef4f972f80e48d7c1299
+      size: 3005
+    - path: swm/svm/linear_svm.py
+      md5: 5dcb149230c49b2b881fddf690d89e28
+      size: 2251
+    - path: swm/visualize/visualizer.py
+      md5: cc7f146adf6a4ba6095a5d8de216fc49
+      size: 2433
+    outs:
+    - path: plots/svm_Linear_1_None_True.png
+      md5: 180986381071e1a1ced777707544dbaf
+      size: 1040816

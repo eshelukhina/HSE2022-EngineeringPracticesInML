@@ -1,0 +1,20 @@
+stages:
+  train:
+    cmd: python3 -m swm.main
+    deps:
+    - swm/model/model_svm.py
+    - swm/svm/kernel_svm.py
+    - swm/svm/linear_svm.py
+    - swm/visualize/visualizer.py
+    outs:
+    - plots/svm_Linear_1_None_True.png
+    - plots/svm_Linear_1_None_False.png
+    - plots/svm_Polynomial_1_\[1,\ 15\]_True.png
+    - plots/svm_Polynomial_1_\[1,\ 3\]_False.png
+    - plots/svm_Polynomial_1_\[1,\ 3\]_True.png
+    - plots/svm_Polynomial_1_\[1000,\ 3\]_True.png
+    - plots/svm_Gaussian_1_\[0.1\]_False.png
+    - plots/svm_Gaussian_1_\[0.4\]_False.png
+    - plots/svm_Gaussian_1_\[0.4\]_True.png
+    - plots/svm_Gaussian_1_\[0.5\]_False.png
+    - plots/svm_Gaussian_1_\[2\]_False.png
